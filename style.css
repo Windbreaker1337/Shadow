@@ -1,0 +1,161 @@
+body{ 
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+    background-color: black;
+    color: white;
+}
+
+header{ 
+    display: flex; 
+    justify-content: space-around;
+    align-items: center;
+    height: 8vh;
+    width: 100%;
+}
+
+.cover { 
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.cover img{ 
+    width: 80px;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.search { 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.search input { 
+    height: 30px;
+    border: none;
+    border-radius: 20px ;
+    margin-right: 4px;
+    background-color: slateblue;
+    outline: none;
+}
+
+.search input:focus{ 
+    border: solid 2px #f5deb3;
+    box-shadow:  0 0 0 2px rgba(255, 221, 118, 0.274);
+}
+
+.search button { 
+    background-color: slateblue;
+    color: white;
+    border: none;
+    border-radius: 10px ;
+}
+
+.search img{ 
+    width: 25px;
+}
+
+
+.profile { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.profile img{ 
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.modalWindProf { 
+    display: none;
+    background-color: #fff;
+    height: 100px;
+    width: 200px;
+    top: 100%;
+    z-index: 1000;
+    position: absolute;
+    background-color: #f5deb3;
+    border-radius: 20px;
+    box-shadow:  0 1px 1px 1px rgba(255, 221, 118, 0.274);
+}
+
+.modalWindProf button { 
+    width: 70%;
+    height: 35px;
+    background-color: slateblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.music { 
+    display: flex;
+    position: relative;
+    width: 150px;
+}
+
+.music button { 
+    height: 30px;
+    width: 100%;
+    background-color: slateblue;
+    border: none;
+    border-radius: 10px;
+    color: #ffff;
+}
+
+.modalMusic{
+    display: none;
+    background-color: #fff;
+    height: 125px;
+    width: 100%;
+    top: 100%;
+    z-index: 1000;
+    position: absolute;
+    background-color: #f5deb3;
+    margin-top: 20px;
+    border-radius: 20px ;
+    flex-direction: column;
+    box-shadow:  0 1px 1px 1px rgba(255, 221, 118, 0.274);
+}
+
+.modalMusic button { 
+    padding-top: 2px;
+    padding-left: 4px;
+    width: 70%;
+    height: 35px;
+    background-color: slateblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.sounds {
+    max-height: 150px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 5px;
+    padding-left: 2px;
+}
+
+.sounds button {
+    background-color: #6a5acd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sounds button:hover {
+    background-color: #7b68ee;
+}
