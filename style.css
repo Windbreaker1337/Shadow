@@ -78,8 +78,11 @@ header{
 
 .modalWindProf { 
     display: none;
-    background-color: #fff;
-    height: 100px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow-y: auto;
+    height: 300px;
     width: 200px;
     top: 100%;
     z-index: 1000;
@@ -96,6 +99,8 @@ header{
     color: white;
     border: none;
     border-radius: 5px;
+    margin-top: 5px ;
+    margin-bottom: 5px;
 }
 
 .music { 
@@ -115,8 +120,7 @@ header{
 
 .modalMusic{
     display: none;
-    background-color: #fff;
-    height: 125px;
+    height: 130px;
     width: 100%;
     top: 100%;
     z-index: 1000;
@@ -150,7 +154,6 @@ header{
 }
 
 .sounds button {
-    background-color: #6a5acd;
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -158,4 +161,126 @@ header{
 
 .sounds button:hover {
     background-color: #7b68ee;
+}
+
+.modalRedact { 
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 400px;
+    width: 400px;
+    z-index: 1000; 
+    background-color: #f5deb3;
+    color: white;
+    box-shadow:  0 1px 1px 1px rgba(255, 221, 118, 0.274);
+    border-radius: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.blur-background {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 999;
+}
+
+button { 
+    cursor: pointer;
+}
+
+#fileInp { 
+    display: none;
+}
+
+main { 
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.main { 
+    display: grid;
+    grid-template-columns: repeat(1fr , 2fr ,1fr);
+}
+
+.leftMenu { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 400px;
+    width: 200px;
+    background-color: #f5deb3;
+    border-radius: 20px;
+}
+
+.leftMenu button { 
+    width: 100px;
+    height: 25px;
+    border: none;
+    border-radius: 8px;
+    margin: 10px 0px 0px 10px;
+    background-color: slateblue;
+    color: white;
+}
+
+.centerMenu { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5deb3;
+    height: 400px;
+    width: 400px;
+    position: relative;
+    z-index: 1000;
+    border-radius: 20px;
+}
+
+.centerMenu { 
+    padding: 10px;
+}
+
+.rightMenu { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5deb3;
+    height: 400px;
+    width: 200px;
+    border-radius: 20px;
+}
+
+.modalAbout{ 
+    position: fixed;
+    transform: translate(-50% , -20%);
+    top: 20%;
+    left: 50%;
+    background-color: #f5deb3;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    width: 400px;
+    border-radius: 20px;
+    z-index: 2000;
+}
+
+.modalAbout button{ 
+    width: 100px;
+    height: 25px;
+    border: none;
+    border-radius: 8px;
+    margin: 10px 0px 0px 10px;
+    background-color: slateblue;
+    color: white;
 }
