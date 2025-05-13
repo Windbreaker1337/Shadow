@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Name</title>
+    <link rel="stylesheet" href="/style/change/name.css">
+    <script src="/js/change/name.js" defer ></script>
+</head>
+<body>
+    <main>
+        <form action=" " id="changeName">
+            <label for="name">Сменить псевдоним:</label>
+            <input type="text" name="name" class="inp" id="nameInp" placeholder="Введите новое псевдоним">
+            <p class="error"></p>
+            <button type="submit" id="confirm">Потвердить</button>
+            <div id="modal">
+                <p>Потвердите данные аккаунта:</p>  
+                <input type="text" name="password" class="inp" id="password" placeholder="Потдверидите пароль">
+                <input type="text" name="email" class="inp" id="email" placeholder="Потдверидите почту">
+                <button type="submit" id="confirmData" >Потвердить данные</button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

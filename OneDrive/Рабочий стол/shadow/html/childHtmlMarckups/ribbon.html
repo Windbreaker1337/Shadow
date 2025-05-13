@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ribbon</title>
+    <link rel="stylesheet" href="/style/childHtmlForCss/ribbon.css">
+    <script src="/js/main.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="cover">
+            <img src="/photo/36b18561-79f9-4ef5-aef5-5434f9f2b41f.png" alt="">
+        </div>
+        <div class="menu">
+            <div class="search" > 
+                <input type="search" name="" id="search"><button id="btnSearch" ><img src="/photo/icons8-лупа-64.png" alt=""></button>    
+            </div>
+            <div class="music">
+                <button class="choiceMusic" id="choiceMusic" >Выбор музыки</button>
+                <div class="modalMusic" id="modalMusic">
+                    <button id="closeMusic">Закрыть выбор музыки</button>
+                    <div class="sounds">
+                        <div class="sound1"><button onclick="playSound('/music/кис-кис, Elcofff - МАЛЬЧИК.mp3')" >КИС-КИС(Rem) </button></div>
+                        <div class="sound2"><button onclick="playSound('/music/mapt0v_ona_snova_mne_napishet_pishet_normalnaya_versiya.mp3')" >Oна снова мне напишет</button></div>
+                        <div class="sound3"><button onclick="playSound('/music/IOWA-Маршрутка (HARD STYLE ).mp3')" >Маршрутка(Hard)</button></div>
+                        <div class="sound4"><button onclick="playSound('/music/ANGUISH, влад пиво, ЯРЧЕ СОЛНЦА, ily - Krasavitsa (Remix).mp3')" >Красавица(Rem)</button></div>
+                        <div class="sound5"><button onclick="playSound('/music/_A_new_emotion_solitude_velocity_slowed_loop_x_inside_out_2_tiktok.mp3')"  >A new emotion(Rem)</button></div>
+                        <audio id="myPlayer" ></audio>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="profile">
+            <img src="/photo/Снимок экрана 2025-02-23 195124.png" alt="" id="profile" >
+            <div class="modalWindProf" id="modalWindProf">
+                <button id="closeProf" > Закрыть настройки профиля</button>
+                <button id="redact" >Редактировать</button>
+                <div class="modalRedact" id="modalRedact">
+                    <button class="closeRed" id="closeRed">Закрыть окно редактирования</button>
+                    <button id="changeAvatar" onclick="document.getElementById('fileInp').click()">Изменить аватар</button>
+                    <input type="file"  id="fileInp" accept="image/*" >
+                    <button id="changePass">Изменить пароль</button>
+                    <button id="changeEmail">Изменить почту</button>
+                    <button id="changeName">Изменить имя</button>
+                    <button id="choiceDesign">Выбрать тему</button>
+                </div>
+                <button id="dataAccount">Данные аккаунта</button>
+                <button id="help">Жалобы</button>
+                <button id="aboutProject">О проекте Shadow</button>
+                <button id="leaveAccount">Выйти из аккаунта</button>
+                <button id="addAccount">Добавить аккаунт</button>
+
+                <div class="blur-background" id="blurBackground"></div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="menu">
+            <div class="leftMenu">
+                <button id="ribbon">Лента</button>
+                <button id="chats">Мессенджер</button>
+                <button id="calls">Звонки</button>
+                <button id="friends">Друзья</button>
+                <button id="music">Музыка</button>
+            </div>
+            <div class="centerMenu">
+                <div class="ribbon" >
+
+                </div>
+            </div>
+            <div class="rightMenu">
+                <!-- advertising space -->
+                 <button id="disabeplace">Выключить правое меню</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
