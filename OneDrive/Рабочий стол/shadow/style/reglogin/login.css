@@ -1,0 +1,103 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: monospace;
+    background-color: black;
+    color: white;
+    overflow: hidden;
+}
+
+.background-effect {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.05) 0%, transparent 70%),
+        radial-gradient(circle at 30% 40%, rgba(0, 255, 255, 0.05) 0%, transparent 60%),
+        radial-gradient(circle at 70% 60%, rgba(255, 0, 255, 0.05) 0%, transparent 60%);
+    animation: moveBackground 20s linear infinite;
+    z-index: 0;
+    filter: blur(1px);
+    opacity: 0.4;
+}
+
+@keyframes moveBackground {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(-10%, -10%) scale(1.1);
+    }
+
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+.form-wrapper {
+    position: relative;
+    background: rgba(245, 222, 179, 0.1); 
+    border: 1px solid rgba(245, 222, 179, 0.3);
+    box-shadow: 0 0 20px rgba(106, 90, 205, 0.2); 
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 30px;
+    width: 300px;
+    z-index: 1;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-size: 14px;
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(245, 222, 179, 0.2);
+    color: white;
+    outline: none;
+    font-size: 14px;
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+button {
+    padding: 10px;
+    background-color: slateblue;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #7b68ee;
+}
+
+.errorUsername { 
+    color: red;
+    font-size: 10px;
+}
+
+.errorPass{ 
+    color: red;
+    font-size: 10px;
+}

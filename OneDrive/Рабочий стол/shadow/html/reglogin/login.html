@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,23 @@
     <link rel="stylesheet" href="/style/reglogin/login.css">
     <script src="/js/reglogin/login.js" defer></script>
 </head>
+
 <body>
-    
+    <div class="form-wrapper">
+        <form id="myForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter username">
+            <div class="errorUsername"></div>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter password">
+            <div class="errorPass"></div>
+
+            <button id="login">Log-in</button>
+        </form>
+    </div>
+    </div>
+    <div class="background-effect"></div>
 </body>
+
 </html>

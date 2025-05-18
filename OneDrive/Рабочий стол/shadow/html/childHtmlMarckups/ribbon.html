@@ -1,45 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" Content-Type=application/javascript >
     <title>Ribbon</title>
     <link rel="stylesheet" href="/style/childHtmlForCss/ribbon.css">
     <script src="/js/main.js" defer></script>
+    <script src="/js/сhildHtmlForJs/ribbon.js" defer ></script>
 </head>
+
 <body>
     <header>
         <div class="cover">
             <img src="/photo/36b18561-79f9-4ef5-aef5-5434f9f2b41f.png" alt="">
         </div>
         <div class="menu">
-            <div class="search" > 
-                <input type="search" name="" id="search"><button id="btnSearch" ><img src="/photo/icons8-лупа-64.png" alt=""></button>    
+            <div class="search">
+                <input type="search" name="" id="search"><button id="btnSearch"><img src="/photo/icons8-лупа-64.png"
+                        alt=""></button>
             </div>
             <div class="music">
-                <button class="choiceMusic" id="choiceMusic" >Выбор музыки</button>
+                <button class="choiceMusic" id="choiceMusic">Выбор музыки</button>
                 <div class="modalMusic" id="modalMusic">
                     <button id="closeMusic">Закрыть выбор музыки</button>
                     <div class="sounds">
-                        <div class="sound1"><button onclick="playSound('/music/кис-кис, Elcofff - МАЛЬЧИК.mp3')" >КИС-КИС(Rem) </button></div>
-                        <div class="sound2"><button onclick="playSound('/music/mapt0v_ona_snova_mne_napishet_pishet_normalnaya_versiya.mp3')" >Oна снова мне напишет</button></div>
-                        <div class="sound3"><button onclick="playSound('/music/IOWA-Маршрутка (HARD STYLE ).mp3')" >Маршрутка(Hard)</button></div>
-                        <div class="sound4"><button onclick="playSound('/music/ANGUISH, влад пиво, ЯРЧЕ СОЛНЦА, ily - Krasavitsa (Remix).mp3')" >Красавица(Rem)</button></div>
-                        <div class="sound5"><button onclick="playSound('/music/_A_new_emotion_solitude_velocity_slowed_loop_x_inside_out_2_tiktok.mp3')"  >A new emotion(Rem)</button></div>
-                        <audio id="myPlayer" ></audio>
+                        <div class="sound1"><button
+                                onclick="playSound('/music/кис-кис, Elcofff - МАЛЬЧИК.mp3')">КИС-КИС(Rem) </button>
+                        </div>
+                        <div class="sound2"><button
+                                onclick="playSound('/music/mapt0v_ona_snova_mne_napishet_pishet_normalnaya_versiya.mp3')">Oна
+                                снова мне напишет</button></div>
+                        <div class="sound3"><button
+                                onclick="playSound('/music/IOWA-Маршрутка (HARD STYLE ).mp3')">Маршрутка(Hard)</button>
+                        </div>
+                        <div class="sound4"><button
+                                onclick="playSound('/music/ANGUISH, влад пиво, ЯРЧЕ СОЛНЦА, ily - Krasavitsa (Remix).mp3')">Красавица(Rem)</button>
+                        </div>
+                        <div class="sound5"><button
+                                onclick="playSound('/music/_A_new_emotion_solitude_velocity_slowed_loop_x_inside_out_2_tiktok.mp3')">A
+                                new emotion(Rem)</button></div>
+                        <audio id="myPlayer"></audio>
                     </div>
                 </div>
             </div>
         </div>
         <div class="profile">
-            <img src="/photo/Снимок экрана 2025-02-23 195124.png" alt="" id="profile" >
+            <img src="/photo/Снимок экрана 2025-02-23 195124.png" alt="" id="profile">
             <div class="modalWindProf" id="modalWindProf">
-                <button id="closeProf" > Закрыть настройки профиля</button>
-                <button id="redact" >Редактировать</button>
+                <button id="closeProf"> Закрыть настройки профиля</button>
+                <button id="redact">Редактировать</button>
                 <div class="modalRedact" id="modalRedact">
                     <button class="closeRed" id="closeRed">Закрыть окно редактирования</button>
-                    <button id="changeAvatar" onclick="document.getElementById('fileInp').click()">Изменить аватар</button>
-                    <input type="file"  id="fileInp" accept="image/*" >
+                    <button id="changeAvatar" onclick="document.getElementById('fileInp').click()">Изменить
+                        аватар</button>
+                    <input type="file" id="fileInp" accept="image/*">
                     <button id="changePass">Изменить пароль</button>
                     <button id="changeEmail">Изменить почту</button>
                     <button id="changeName">Изменить имя</button>
@@ -65,15 +81,74 @@
                 <button id="music">Музыка</button>
             </div>
             <div class="centerMenu">
-                <div class="ribbon" >
+                <div class="ribbon">
+                    <button id="buttonIndicat" type="button">указать интересы</button>
 
+                    <div class="form" id="formContainer">
+                        <form action="" id="buildRibbon" class="form-content">
+                            <h2 style="color: black; text-align: center;">Настройки ленты</h2>
+
+                            <div class="form-group">
+                                <label for="category">Категория:</label>
+                                <select name="category" id="category" class="form-select">
+                                    <option value="all">Все категории</option>
+                                    <option value="politics">Политика</option>
+                                    <option value="sports">Спорт</option>
+                                    <option value="technology">Технологии</option>
+                                    <option value="entertainment">Развлечения</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="count">Количество:</label>
+                                <input type="number" name="count" id="count" min="1" max="20" value="5"
+                                    class="form-input">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="sort">Сортировать:</label>
+                                <select name="sort" id="sort" class="form-select">
+                                    <option value="date">По дате</option>
+                                    <option value="popularity">По популярности</option>
+                                    <option value="title">По заголовку</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="source">Источник:</label>
+                                <select name="source" id="source" class="form-select">
+                                    <option value="all">Все источники</option>
+                                    <option value="newsru">News.ru</option>
+                                    <option value="lenta">Лента.ру</option>
+                                    <option value="yandex">Яндекс.Новости</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group" style="flex-direction: row; align-items: center;">
+                                <input type="checkbox" name="includeImages" id="includeImages" checked
+                                    class="form-checkbox">
+                                <label for="includeImages" style="margin-left: 8px; color: black;">Показывать
+                                    изображения</label>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="form-button">Создать ленту</button>
+                                <button type="button" class="form-button" id="closeForm">Закрыть</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="newsContainer">
+                        <p>Здесь пока нет новостей.</p>
+                    </div>
                 </div>
             </div>
+
             <div class="rightMenu">
                 <!-- advertising space -->
-                 <button id="disabeplace">Выключить правое меню</button>
+                <button id="disabeplace">Выключить правое меню</button>
             </div>
         </div>
     </main>
 </body>
+
 </html>
