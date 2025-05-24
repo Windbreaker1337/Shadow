@@ -217,7 +217,7 @@ main {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 400px;
+    height: 70vh;
     width: 200px;
     background-color: #f5deb3;
     border-radius: 20px;
@@ -238,7 +238,7 @@ main {
     align-items: center;
     justify-content: center;
     background-color: #f5deb3;
-    height: 400px;
+    height: 70vh;
     width: 400px;
     position: relative;
     z-index: 1000;
@@ -254,7 +254,7 @@ main {
     align-items: center;
     justify-content: center;
     background-color: #f5deb3;
-    height: 400px;
+    height: 70vh;
     width: 200px;
     border-radius: 20px;
 }
