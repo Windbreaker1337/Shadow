@@ -242,3 +242,5 @@ const changePass = document.getElementById('changePass');
 changePass.addEventListener('click' , () => { 
     window.location.href = 'change/password.html'
 })
+
+console.log(window.location.href)

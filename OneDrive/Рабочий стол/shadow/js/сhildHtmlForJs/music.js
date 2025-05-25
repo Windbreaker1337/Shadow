@@ -28,7 +28,7 @@ function nextTrack() {
     player.play(); 
 }
 
-buttons.forEach((btn, index) => {
+buttons.forEach((btn) => {
     btn.addEventListener('click', (e) => {
         e.preventDefault();
         const match = btn.getAttribute('onclick')?.match(/['"]([^'"]+)['"]/);
@@ -48,6 +48,5 @@ buttons.forEach((btn, index) => {
                 player.play();
             }
         })
-
     })
 })

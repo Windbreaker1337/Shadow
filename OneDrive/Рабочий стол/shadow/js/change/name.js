@@ -10,30 +10,35 @@ const confirmData = document.getElementById('confirmData');
 
 const users = { 
     user1: { 
-        name: 'user1',
-        password: '123',
-        email: 'HbGxZ@example.com'
-    }, 
-    user2: { 
-        name: 'user2',
-        password: '123',
-        email: 'HbGxZ@example.com'
-    }, 
-    user3: { 
-        name: 'user3',
-        password: '123',
-        email: 'HbGxZ@example.com'
-    }, 
-    user4: { 
-        name: 'user4',
-        password: '123',
-        email: 'HbGxZ@example.com'
-    }, 
-    user5: { 
-        name: 'user5',
-        password: '123',
-        email: 'HbGxZ@example.com'
+        username: 'ghost',
+        password: 'WewR23', 
+        email: 'HbGxZ@example.com' 
     },
+    user2: {
+        username: 'shadow',
+        password: 'ShadowPass123',
+        email: 'shadow@example.com'
+    },
+    user3: {
+        username: 'admin',
+        password: 'AdminSecure1',
+        email: 'admin@example.com'
+    },
+    user4: {
+        username: 'user123',
+        password: 'UserPass456',
+        email: 'user123@example.com'
+    },
+    user5: {
+        username: 'coolguy',
+        password: 'CoolGuyPass7',
+        email: 'coolguy@example.com'
+    },
+    user6: {
+        username: 'tester',
+        password: 'Test1234',
+        email: 'tester@example.com'
+    }
 }
 
 form.addEventListener('submit' , (e) => { 
