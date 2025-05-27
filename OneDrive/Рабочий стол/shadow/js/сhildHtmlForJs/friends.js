@@ -95,5 +95,3 @@ document.addEventListener('click', (e) => {
         li.remove();
     }
 })
-
-const saveFrnd = () => localStorage.setItem('friends', JSON.stringify(dataFriendList));
