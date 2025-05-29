@@ -63,7 +63,7 @@ openSearchBtn.addEventListener('click', () => {
 })
 
 const friendList = document.getElementById('friendList');
-const dataFriendList = [];
+let dataFriendList = JSON.parse(localStorage.getItem('friends')) || [];
 
 
 document.addEventListener('click', (e) => {
@@ -75,25 +75,60 @@ document.addEventListener('click', (e) => {
             const li = document.createElement('li');
             li.textContent = username;
             const removeBtn = document.createElement('button');
-            removeBtn.classList.add('removeFriend'); 
+            removeBtn.classList.add('removeFriend');
             removeBtn.textContent = 'Удалить';
             li.appendChild(removeBtn);
             friendList.appendChild(li);
             result.innerHTML = ` `;
-        }else{ 
+            saveFrnd();
+        } else {
             alert('Пользователь уже добавлен в друзья');
         }
     }
 
-    if(e.target && e.target.classList.contains('removeFriend')){ 
-        const li = e.target.parentElement; 
-        const username = li.firstChild.textContent.trim(); 
+    if (e.target && e.target.classList.contains('removeFriend')) {
+        const li = e.target.parentElement;
+        const username = li.firstChild.textContent.trim();
         const index = dataFriendList.indexOf(username);
-        if(index > -1){ 
-            dataFriendList.splice(index , 1);
+        if (index > -1) {
+            dataFriendList.splice(index, 1);
         }
         li.remove();
+        saveFrnd();
     }
 })
 
 const saveFrnd = () => localStorage.setItem('friends', JSON.stringify(dataFriendList));
+
+dataFriendList.forEach(username => {
+    const li = document.createElement('li');
+    li.textContent = username;
+    li.innerHTML += '<button class="removeFriend">Удалить</button>';
+    friendList.appendChild(li);
+})
+
+const ribbonBtn = document.getElementById('ribbon');
+const chatsBtn = document.getElementById('chats');
+const calls = document.getElementById('calls');
+const friends = document.getElementById('friends');
+const music = document.getElementById('music');
+
+ribbonBtn.addEventListener('click' , () => { 
+    window.location.href = 'ribbon.html'
+})  
+
+chatsBtn.addEventListener('click' , () => { 
+    window.location.href = 'chats.html'
+})
+
+calls.addEventListener('click' , () => { 
+    window.location.href = 'calls.html'
+})
+
+friends.addEventListener('click' , () => { 
+    window.location.href = 'friends.html'
+})
+
+music.addEventListener('click' , () => { 
+    window.location.href = 'music.html'
+})

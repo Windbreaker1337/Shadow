@@ -1,11 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>404 Not Found</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #121212;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .circle {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 20px;
+      border: 4px solid #f5deb3;
+      box-shadow: 0 0 20px #f5deb3, 0 0 40px #f5deb3;
+      animation: pulse 2s infinite;
+    }
+
+    .circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .circle:hover img {
+      transform: scale(1.1);
+    }
+
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 10px;
+      animation: glitch 1s linear infinite alternate;
+    }
+
+    p {
+      font-size: 1.2rem;
+      opacity: 0.8;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 10px #f5deb3, 0 0 20px #f5deb3;
+      }
+      50% {
+        box-shadow: 0 0 20px #f5deb3, 0 0 40px #f5deb3;
+      }
+      100% {
+        box-shadow: 0 0 10px #f5deb3, 0 0 20px #f5deb3;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes glitch {
+      0% { text-shadow: 1px 1px red, -1px -1px white; }
+      25% { text-shadow: -2px 0 blue, 2px 2px yellow; }
+      50% { text-shadow: 2px 0 green, -2px -2px magenta; }
+      75% { text-shadow: -1px 1px orange, 1px -1px cyan; }
+      100% { text-shadow: 1px 1px red, -1px -1px white; }
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      color: #e57373;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #f5deb3;
+    }
+  </style>
 </head>
 <body>
-    
+  <div class="container">
+    <div class="circle">
+      <img src="/photo/быков.webp " alt="Андрей Быков">
+    </div>
+    <h1>404</h1>
+    <p>Ты запутался</p>
+    <p>Попробуй вернуться обратно.</p>
+    <p>То что ты искал скоро добавиться.</p>
+    <a href="/html/index.html">← На главную</a>
+  </div>
+  <!-- this page was made a neuro because I was too lazy to do it a little -->
 </body>
 </html>
