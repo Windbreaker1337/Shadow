@@ -57,5 +57,5 @@ http.createServer((req, res) => {
         }
     });
 }).listen(4412, () => {
-    console.log('Сервер запущен на http://localhost:4412');
+    console.log('Server runing a http://localhost:4412');
 });
