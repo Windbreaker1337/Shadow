@@ -5,6 +5,8 @@ const path = require('path');
 const htmlDir = path.join(__dirname, '../html');
 const styleDir = path.join(__dirname, '../style');
 const jsDir = path.join(__dirname, '../js');
+const photoDir = path.join(__dirname, '../photo');
+const musicDir = path.join(__dirname, '../music');
 
 const mimeTypes = {
     '.html': 'text/html',
@@ -25,8 +27,11 @@ http.createServer((req, res) => {
     } else if (req.url.startsWith('/style/')) {
         filePath = path.join(styleDir, req.url.slice(7));
 
-    } else if (req.url.startsWith('/js/')) {
+    }else if (req.url.startsWith('/js/')) {
         filePath = path.join(jsDir, req.url.slice(4));
+
+    }else if(req.url.startsWith('/photo/')){ 
+        filePath = path.join(photoDir, req.url.slice(7));
 
     } else {
         filePath = path.join(htmlDir, req.url.replace(/^\/+/, ''));
@@ -48,6 +53,16 @@ http.createServer((req, res) => {
                     }
                 });
             } else {
+                if(extname === '.html'){ 
+                    let htmlCont = content.toString(); 
+                    const scritTag = '<script src="/js/main.js" defer></script>';
+                    if( html.includes('</head>')){ 
+                        htmlCont = htmlCont.replace('</head>' , `${scritTag}</head>`)
+                    }else{ 
+                        console.warn('тег худ не найден  в' , filePath);
+                        htmlCont = htmlCont.replace('</head>' , `<head>\n${scritTag}`)
+                    }
+                }
                 res.writeHead(500, { 'Content-Type': 'text/html; charset=utf-8' });
                 res.end('<h1>500 Internal Server Error</h1>');
             }
