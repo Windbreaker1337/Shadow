@@ -97,7 +97,6 @@ document.addEventListener('click', (e) => {
         saveFrnd();
     }
 })
-<<<<<<< HEAD
 
 const saveFrnd = () => localStorage.setItem('friends', JSON.stringify(dataFriendList));
 
@@ -123,7 +122,7 @@ chatsBtn.addEventListener('click' , () => {
 })
 
 calls.addEventListener('click' , () => { 
-    window.location.href = 'calls.html'
+    window.location.href = '/html/404Found.html'
 })
 
 friends.addEventListener('click' , () => { 
@@ -133,5 +132,4 @@ friends.addEventListener('click' , () => {
 music.addEventListener('click' , () => { 
     window.location.href = 'music.html'
 })
-=======
->>>>>>> 709de5c263cf678cd5fc5530ff86511eb21e5dae
+

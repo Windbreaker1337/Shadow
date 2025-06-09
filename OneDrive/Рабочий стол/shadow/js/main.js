@@ -6,6 +6,8 @@ const closeMusicBtn = document.getElementById('closeMusic');
 const closeProfBtn = document.getElementById('closeProf');
 const player = document.getElementById('myPlayer');
 
+console.log(choiceMusicBtn)
+console.log(modalMusic)
 
 choiceMusicBtn.addEventListener('click', () => { 
     modalMusic.style.display = 'flex'; 
@@ -97,7 +99,7 @@ btnChats.addEventListener('click' , function() {
 })
 
 btnCalls.addEventListener('click' , function() { 
-    window.location.href = 'childHtmlMarckups/calls.html'
+    window.location.href = '/html/404Found.html'
 })
 
 btnFriends.addEventListener('click' , function() { 

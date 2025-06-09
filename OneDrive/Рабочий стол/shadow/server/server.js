@@ -15,62 +15,118 @@ const mimeTypes = {
     '.png': 'image/png',
     '.jpg': 'image/jpeg',
     '.jpeg': 'image/jpeg',
-    '.gif': 'image/gif'
+    '.gif': 'image/gif', 
+    '.webp' : 'image/webp', 
+    '.mp3' : 'audio/mpeg',
 };
+
 
 http.createServer((req, res) => {
     let filePath;
 
-    if (req.url === '/') {
-        filePath = path.join(htmlDir, 'index.html');
+    try {
+        const decodedUrl = decodeURIComponent(req.url);
 
-    } else if (req.url.startsWith('/style/')) {
-        filePath = path.join(styleDir, req.url.slice(7));
+        if (decodedUrl === '/') {
+            filePath = path.join(htmlDir, 'index.html')
+        } else if (decodedUrl.startsWith('/style/')) {
+            filePath = path.join(styleDir, decodedUrl.slice(7))
+        } else if (decodedUrl.startsWith('/js/')) {
+            filePath = path.join(jsDir, decodedUrl.slice(4))
+        } else if (decodedUrl.startsWith('/photo/')) {
+            filePath = path.join(photoDir, decodedUrl.slice(7))
+        } else if (decodedUrl.startsWith('/music/')) {
+            filePath = path.join(musicDir, decodedUrl.slice(7))
+        } else {
+            filePath = path.join(htmlDir, decodedUrl.replace(/^\/+/, ''))
+        }
 
-    }else if (req.url.startsWith('/js/')) {
-        filePath = path.join(jsDir, req.url.slice(4));
+        const extname = path.extname(filePath);
+        const contentType = mimeTypes[extname] || 'application/octet-stream'
+        console.log( filePath)
 
-    }else if(req.url.startsWith('/photo/')){ 
-        filePath = path.join(photoDir, req.url.slice(7));
+        if (extname === '.mp3') {
+            fs.stat(filePath, (err, stats) => {
+                if (err) {
+                    res.writeHead(500);
+                    res.end('Internal Server Error');
+                    return;
+                }
 
-    } else {
-        filePath = path.join(htmlDir, req.url.replace(/^\/+/, ''));
-    }
+                const range = req.headers.range;
+                if (!range) {
+                    res.writeHead(416);
+                    res.end();
+                    return;
+                }
 
-    const extname = path.extname(filePath);
-    const contentType = mimeTypes[extname] || 'text/plain';
+                const [startStr, endStr] = range.replace(/bytes=/, '').split('-');
+                const start = parseInt(startStr, 10);
+                const end = endStr ? parseInt(endStr, 10) : stats.size - 1;
 
-    fs.readFile(filePath, (err, content) => {
-        if (err) {
-            if (err.code === 'ENOENT') {
-                fs.readFile(path.join(htmlDir, '404Found.html'), (err404, content404) => {
-                    if (err404) {
+                if (start >= stats.size) {
+                    res.writeHead(416);
+                    res.end();
+                    return;
+                }
+
+                const chunkSize = end - start + 1;
+                const head = {
+                    'Content-Range': `bytes ${start}-${end}/${stats.size}`,
+                    'Accept-Ranges': 'bytes',
+                    'Content-Length': chunkSize,
+                    'Content-Type': 'audio/mpeg',
+                };
+                res.writeHead(206, head);
+
+                fs.createReadStream(filePath, { start, end }).pipe(res);
+            });
+
+        } else {
+            fs.readFile(filePath, (err, content) => {
+                if (err) {
+                    if (err.code === 'ENOENT') {
+                        fs.readFile(path.join(htmlDir, '404Found.html'), (err404, content404) => {
+                            if (err404) {
+                                res.writeHead(500, { 'Content-Type': 'text/html; charset=utf-8' });
+                                res.end('<h1>500 Internal Server Error</h1>');
+                            } else {
+                                res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
+                                res.end(content404);
+                            }
+                        });
+                    } else {
                         res.writeHead(500, { 'Content-Type': 'text/html; charset=utf-8' });
                         res.end('<h1>500 Internal Server Error</h1>');
-                    } else {
-                        res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
-                        res.end(content404);
                     }
-                });
-            } else {
-                if(extname === '.html'){ 
-                    let htmlCont = content.toString(); 
-                    const scritTag = '<script src="/js/main.js" defer></script>';
-                    if( html.includes('</head>')){ 
-                        htmlCont = htmlCont.replace('</head>' , `${scritTag}</head>`)
-                    }else{ 
-                        console.warn('тег худ не найден  в' , filePath);
-                        htmlCont = htmlCont.replace('</head>' , `<head>\n${scritTag}`)
+                } else {
+                    if (extname === '.html') {
+                        let htmlCont = content.toString();
+                        const scriptTag = '<script src="/js/main.js" defer></script>';
+
+                        if (htmlCont.includes('</head>')) {
+                            htmlCont = htmlCont.replace('</head>', `${scriptTag}</head>`);
+                        } else {
+                            console.warn('tag </head> not found in', filePath);
+                            htmlCont = htmlCont.replace('<head>', `<head>\n${scriptTag}`);
+                        }
+
+                        res.writeHead(200, { 'Content-Type': contentType });
+                        res.end(htmlCont);
+                        return;
                     }
+
+                    res.writeHead(200, { 'Content-Type': contentType });
+                    res.end(content);
                 }
-                res.writeHead(500, { 'Content-Type': 'text/html; charset=utf-8' });
-                res.end('<h1>500 Internal Server Error</h1>');
-            }
-        } else {
-            res.writeHead(200, { 'Content-Type': contentType });
-            res.end(content);
+            });
         }
-    });
+
+    } catch (e) {
+        console.error('URL decoding error:', e.message);
+        res.writeHead(400, { 'Content-Type': 'text/html; charset=utf-8' });
+        res.end('<h1>400 Bad Request</h1>');
+    }
 }).listen(4412, () => {
-    console.log('Server runing  http://localhost:4412');
+    console.log('Server running at http://localhost:4412');
 });

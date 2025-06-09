@@ -66,7 +66,7 @@ chatsBtn.addEventListener('click' , () => {
 })
 
 calls.addEventListener('click' , () => { 
-    window.location.href = 'calls.html'
+    window.location.href = '/html/404Found.html'
 })
 
 friends.addEventListener('click' , () => { 
