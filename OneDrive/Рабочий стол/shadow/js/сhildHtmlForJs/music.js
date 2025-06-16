@@ -76,3 +76,35 @@ friends.addEventListener('click' , () => {
 music.addEventListener('click' , () => { 
     window.location.href = 'music.html'
 })
+
+    document.addEventListener('keydown', (e) => {
+        const key = e.code || e.key;
+
+        if (key === 'MediaTrackNext' || key === 'MediaFastForward') {
+            e.preventDefault()
+            countMusic = (countMusic + 1) % tracsArr.length;
+            playSound(tracsArr[countMusic].url);
+        }
+        if (key === 'MediaTrackPrevious' || key === 'MediaRewind') {
+            e.preventDefault();
+            countMusic = (countMusic - 1 + tracsArr.length) % tracsArr.length;
+            playSound(tracsArr[countMusic].url);
+        }
+
+        if (key === 'MediaPlayPause') {
+            e.preventDefault();
+            if (!player.paused) {
+                player.pause();
+                playSoundBtn.forEach(btn => {
+                    btn.classList.remove('pause');
+                    btn.classList.add('play');
+                });
+            } else {
+                player.play();
+                playSoundBtn.forEach(btn => {
+                    btn.classList.remove('play');
+                    btn.classList.add('pause');
+                });
+            }
+        }
+    })

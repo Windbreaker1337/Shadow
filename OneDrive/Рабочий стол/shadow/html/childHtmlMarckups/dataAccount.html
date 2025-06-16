@@ -1,11 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>data</title>
+    <link rel="stylesheet" href="/style/childHtmlForCss/dataaccount.css">
+    <script src="/js/сhildHtmlForJs/dataaccount.js"></script>
 </head>
-<body>
 
+<body>
+    <header>
+        <div class="preview"><img src="/photo/36b18561-79f9-4ef5-aef5-5434f9f2b41f.png" alt=""></div>
+        <div class="choiceMusic">
+            <button id="choiceMusic">Выбрать музыку</button>
+            <div id="modalMusic">
+                <button id="closeChoice">Закрыть выбора музыке</button>
+                <div class="music">
+                    <div class="Sounds">
+                        <p class="nameSong"></p>
+                        <button class="playSound" onclick="playSound('/music/врнтвмдлбв.mp3')"></button>
+                    </div>
+                    <div class="Sounds">
+                        <p class="nameSong"></p>
+                        <button class="playSound" onclick="playSound('/music/K1llua - Мило материшься hard style.mp3')"></button>
+                    </div>
+                    <div class="Sounds">
+                        <p class="nameSong"></p>
+                        <button class="playSound" onclick="playSound('/music/')"></button>
+                    </div>
+                    <div class="Sounds">
+                        <p class="nameSong"></p>
+                        <button class="playSound" onclick="playSound('/music/')"></button>
+                    </div>
+                    <div class="Sounds">
+                        <p class="nameSong"></p>
+                        <button class="playSound" onclick="playSound('/music/')"></button>
+                    </div>
+                    <div class="Sounds">
+                        <p class="nameSong"></p>
+                        <button class="playSound" onclick="playSound('/music/')"></button>
+                    </div>
+                    <div class="Sounds">
+                        <p class="nameSong"></p>
+                        <button class="playSound" onclick="playSound('/music/')"></button>
+                    </div>
+                    <div class="Sounds">
+                        <p class="nameSong"></p>
+                        <button class="playSound" onclick="playSound('/music/')"></button>
+                    </div>
+                    <div class="Sounds">
+                        <p class="nameSong"></p>
+                        <button class="playSound" onclick="playSound('/music/')"></button>
+                    </div>
+                    <div class="Sounds">
+                        <p class="nameSong"></p>
+                        <button class="playSound" onclick="playSound('/music/')"></button>
+                    </div>
+                    <div class="Sounds">
+                        <p class="nameSong"></p>
+                        <button class="playSound" onclick="playSound('/music/')"></button>
+                    </div>
+                    <div class="Sounds">
+                        <p class="nameSong"></p>
+                        <button class="playSound" onclick="playSound('/music/')"></button>
+                    </div>
+                </div>
+                <audio src="" id="myPlayer"></audio>
+            </div>
+        </div>
+        <div></div>
+    </header>
+    <main>
+        <div class="leftmenu">
+            <div class="avatarBtn">
+                <img src="/photo/deflautAva.png" alt="">
+            </div>
+            <div class="buttons">
+                <button id="ribbon">Лента</button>
+                <button id="chats">Мессенджер</button>
+                <button id="calls">Звонки</button>
+                <button id="friends">Друзья</button>
+                <button id="music">Музыка</button>
+            </div>
+        </div>
+        <div class="centermenu">
+            <div class="dataacconts">
+                <div class="main">
+                    <p id="name">Псевдоним:Admin</p>
+                    <div class="gallery-wraper">
+                        <div class="gallery">
+                            <img src="/photo/deflautAva.png" alt="" class="photoGallery">
+                            <img src="/photo/быков.webp" alt="" class="photoGallery">
+                            <img src="/photo/deflautAva.png" alt="" class="photoGallery">
+                            <img src="/photo/deflautAva.png" alt="" class="photoGallery">
+                            <img src="/photo/deflautAva.png" alt="" class="photoGallery">
+                            <img src="/photo/deflautAva.png" alt="" class="photoGallery">
+                            <img src="/photo/deflautAva.png" alt="" class="photoGallery">
+                            <img src="/photo/deflautAva.png" alt="" class="photoGallery">
+                            <img src="/photo/deflautAva.png" alt="" class="photoGallery">
+                            <img src="/photo/deflautAva.png" alt="" class="photoGallery">
+                            <img src="/photo/deflautAva.png" alt="" class="photoGallery">
+                            <img src="/photo/deflautAva.png" alt="" class="photoGallery">
+                            <img src="/photo/deflautAva.png" alt="" class="photoGallery">
+                            <img src="/photo/deflautAva.png" alt="" class="photoGallery">
+                            <img src="/photo/deflautAva.png" alt="" class="photoGallery">
+                            <img src="/photo/deflautAva.png" alt="" class="photoGallery">
+                        </div>
+                    </div>
+                    <div id="lightbox" class="lightbox">
+                        <span class="close-btn">&times;</span>
+                        <img class="lightbox-img" id="lightbox-img" alt="Увеличенное фото">
+                        <div class="nav">
+                            <button class="prev">&#10094;</button>
+                            <button class="next">&#10095;</button>
+                        </div>
+                    </div>
+                    <p>Количество аудио:13</p>
+                    <p id="time">Время с shadow:</p>
+                    <p id="email">Admin@example.com</p>
+                    <p id="countFriends">Количество друзей:13</p>
+                    <p id="addres">Адрес страницы:</p>
+                    <p id="countMEss">Количество сообщений:</p>
+
+                </div>
+                <div class="close">
+                    <button id="closedata">Вернуться на главную</button>
+                </div>
+            </div>
+        </div>
+        <div class="rightmenu">
+
+            <button id="closerightmenu">Закрыть правое меню</button>
+        </div>
+    </main>
 </body>
+
 </html>
