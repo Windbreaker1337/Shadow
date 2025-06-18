@@ -4,10 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" Content-Type=application/javascript >
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" Content-Type=application/javascript>
     <title>Ribbon</title>
     <link rel="stylesheet" href="/style/childHtmlForCss/ribbon.css">
-    <script src="/js/сhildHtmlForJs/ribbon.js" defer ></script>
 </head>
 
 <body>
@@ -25,19 +24,19 @@
                 <div class="modalMusic" id="modalMusic">
                     <button id="closeMusic">Закрыть выбор музыки</button>
                     <div class="sounds">
-                        <div class="sound1"><button
+                        <div class="sound1"><button class="playSound"
                                 onclick="playSound('/music/кис-кис, Elcofff - МАЛЬЧИК.mp3')">КИС-КИС(Rem) </button>
                         </div>
-                        <div class="sound2"><button
+                        <div class="sound2"><button class="playSound"
                                 onclick="playSound('/music/mapt0v_ona_snova_mne_napishet_pishet_normalnaya_versiya.mp3')">Oна
                                 снова мне напишет</button></div>
-                        <div class="sound3"><button
+                        <div class="sound3"><button class="playSound"
                                 onclick="playSound('/music/IOWA-Маршрутка (HARD STYLE ).mp3')">Маршрутка(Hard)</button>
                         </div>
-                        <div class="sound4"><button
+                        <div class="sound4"><button class="playSound"
                                 onclick="playSound('/music/ANGUISH, влад пиво, ЯРЧЕ СОЛНЦА, ily - Krasavitsa (Remix).mp3')">Красавица(Rem)</button>
                         </div>
-                        <div class="sound5"><button
+                        <div class="sound5"><button class="playSound"
                                 onclick="playSound('/music/_A_new_emotion_solitude_velocity_slowed_loop_x_inside_out_2_tiktok.mp3')">A
                                 new emotion(Rem)</button></div>
                         <audio id="myPlayer"></audio>
@@ -52,7 +51,8 @@
                 <button id="redact">Редактировать</button>
                 <div class="modalRedact" id="modalRedact">
                     <button class="closeRed" id="closeRed">Закрыть окно редактирования</button>
-                    <button id="changeAvatar" onclick="document.getElementById('fileInp').click()">Изменить
+                    <button id="change"  
+                        onclick="document.getElementById('fileInp').click()">Изменить
                         аватар</button>
                     <input type="file" id="fileInp" accept="image/*">
                     <button id="changePass">Изменить пароль</button>
@@ -137,7 +137,21 @@
                         </form>
                     </div>
                     <div id="newsContainer">
-                        <p>Здесь пока нет новостей.</p>
+
+                    </div>
+                    <div class="contAdd">
+                        <button id="addNews">Добавить новость</button>
+                        <div id="modalNews">
+                            <h3>Расскажите о своем событии!</h3>
+                            <div class='newsFormCont'>
+                                <label>Событие</label>
+                                <input type='text' placeholder='Название события' id="inpNameNews">
+                                <label>Описание</label>
+                                <input type='text' placeholder='описания события' id="descripitionInp">
+                                <button id='confirmAddNews'>Добавить запись</button>
+                                <button id='closeAddNews'>Заркыть добавление новости</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -148,6 +162,7 @@
             </div>
         </div>
     </main>
+<script src="/js/сhildHtmlForJs/ribbon.js"></script>
 </body>
 
 </html>
