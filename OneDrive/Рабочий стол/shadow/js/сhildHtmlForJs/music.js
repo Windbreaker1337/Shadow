@@ -51,6 +51,21 @@ buttons.forEach((btn) => {
     })
 })
 
+document.addEventListener('keydown' , (e) => { 
+    const key = e.code || e.key;
+
+    if (key === 'MediaTrackNext' || key === 'MediaFastForward') {
+        e.preventDefault()
+        countMusic = (countMusic + 1) % tracksArr.length;
+        playSound(tracksArr[countMusic].url);
+    }
+    if (key === 'MediaTrackPrevious' || key === 'MediaRewind') {
+        e.preventDefault();
+        countMusic = (countMusic - 1 + tracksArr.length) % tracksArr.length;
+        playSound(tracksArr[countMusic].url);
+    }
+})
+
 const ribbonBtn = document.getElementById('ribbon');
 const chatsBtn = document.getElementById('chats');
 const calls = document.getElementById('calls');

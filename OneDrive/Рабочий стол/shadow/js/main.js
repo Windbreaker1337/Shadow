@@ -42,11 +42,44 @@ window.addEventListener('click', (e) => {
     }
 })
 
+let countMusic = 0; 
+const playSoundBtn = document.querySelectorAll('.playSound');
+const tracksArr = Array.from(playSoundBtn).map(btn => {
+    const match = btn.getAttribute('onclick')?.match(/['"]([^'"]+)['"]/);
+    return {
+        url: match ? match[1] : '',
+        element: btn
+    };
+})
+
 function playSound(url) { 
-    player.src = url ; 
-    player.play()
+    const index = tracksArr.findIndex(track => track.url === url);
+    if (index !== -1) { 
+        countMusic = index;
+        player.src = url;
+        player.play(); 
+    }
 }
 
+player.addEventListener('ended', () => {
+    countMusic = (countMusic + 1) % tracksArr.length;
+    playSound(tracksArr[countMusic].url);
+})
+
+document.addEventListener('keydown' , (e) => { 
+    const key = e.code || e.key;
+
+    if (key === 'MediaTrackNext' || key === 'MediaFastForward') {
+        e.preventDefault()
+        countMusic = (countMusic + 1) % tracksArr.length;
+        playSound(tracksArr[countMusic].url);
+    }
+    if (key === 'MediaTrackPrevious' || key === 'MediaRewind') {
+        e.preventDefault();
+        countMusic = (countMusic - 1 + tracksArr.length) % tracksArr.length;
+        playSound(tracksArr[countMusic].url);
+    }
+})
 
 const redact = document.getElementById('redact');
 const modalRedact = document.getElementById('modalRedact');

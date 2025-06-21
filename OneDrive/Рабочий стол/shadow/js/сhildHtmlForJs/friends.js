@@ -133,3 +133,118 @@ music.addEventListener('click' , () => {
     window.location.href = 'music.html'
 })
 
+const choiceMusicBtn = document.getElementById('choiceMusic');
+const modalMusic = document.getElementById('modalMusic');
+const avatar = document.getElementById('avatar');
+const modalWindProf = document.getElementById('modalWindProf'); 
+const closeModalMusic = document.getElementById('closeModalMusic');
+
+choiceMusicBtn.addEventListener('click', () => { 
+    modalMusic.style.display = 'flex'; 
+})
+
+avatar.addEventListener('click', () => {
+    modalWindProf.style.display = 'flex';
+})
+closeModalMusic.addEventListener('click' , () => { 
+    modalMusic.style.display = 'none';
+})
+
+const player = document.getElementById('myPlayer');
+const playSoundBtn = document.querySelectorAll('.playSound');
+let tracksArr = Array.from(playSoundBtn).map(btn => {
+    const match = btn.getAttribute('onclick')?.match(/['"]([^'"]+)['"]/);
+    return {
+        url: match ? match[1] : '',
+        element: btn
+    };
+});
+let countMusic = 0; 
+
+function playSound(url) { 
+    const index = tracksArr.findIndex(track => track.url === url);
+    if (index !== -1) { 
+        countMusic = index;
+        player.src = url;
+        player.play(); 
+    }
+}
+
+player.addEventListener('ended' , () => { 
+    countMusic = (countMusic + 1) % tracksArr.length;
+    playSound(tracksArr[countMusic].url);
+})
+
+document.addEventListener('keydown' , (e) => { 
+    const key = e.code || e.key;
+
+    if (key === 'MediaTrackNext' || key === 'MediaFastForward') {
+        e.preventDefault()
+        countMusic = (countMusic + 1) % tracksArr.length;
+        playSound(tracksArr[countMusic].url);
+    }
+    if (key === 'MediaTrackPrevious' || key === 'MediaRewind') {
+        e.preventDefault();
+        countMusic = (countMusic - 1 + tracksArr.length) % tracksArr.length;
+        playSound(tracksArr[countMusic].url);
+    }
+})
+
+const fileInp = document.getElementById('fileInp'); 
+
+fileInp.addEventListener('change' , (e) => { 
+    const file = e.target.files[0];
+    if(file && file.type.startsWith('image/')){ 
+        const reader = new FileReader(); 
+        reader.onload = function(event) { 
+            document.getElementById('profile').src = event.target.result;
+        }
+        reader.readAsDataURL(file); 
+    }
+})
+
+const redact = document.getElementById('redact');
+const modalRedact = document.getElementById('modalRedact');
+const closeRed = document.getElementById('closeRed');
+
+redact.addEventListener('click' , () => { 
+    modalRedact.style.display = 'flex';
+})
+
+closeRed.addEventListener('click' , () => {
+    modalRedact.style.display = 'none';
+})
+
+const changePass= document.getElementById('changePass');
+changePass.addEventListener('click' , () => { 
+    window.location.href = '/html/change/password.html'
+})
+const changeEmail = document.getElementById('changeEmail'); 
+changeEmail.addEventListener('click' , () => {
+    window.location.href = '/html/change/email.html'
+})
+
+const chandeName = document.getElementById('changeName'); 
+chandeName.addEventListener('click' , () => {
+    window.location.href = '/html/change/name.html'
+})
+
+const dataAccount = document.getElementById('dataAccount');
+dataAccount.addEventListener('click' , () => { 
+    window.location.href = 'dataAccount.html'
+})
+
+const aboutProject = document.getElementById('aboutProject');
+aboutProject.addEventListener('click' , () => { 
+    
+})
+
+const leaveAccount = document.getElementById('leaveAccount'); 
+leaveAccount.addEventListener('click' , () => { 
+    window.location.href = '/html/reglogin/register.html'
+})
+
+const addAccount = document.getElementById('addAccount'); 
+addAccount.addEventListener('click' , () => { 
+    window.location.href = '/html/reglogin/login.html'
+})
