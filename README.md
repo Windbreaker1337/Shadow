@@ -1,11 +1,9 @@
-Русская версия,
-Russian version: 
-Это мой небольшой побочный проект в программировании, основной язык разработки — JavaScript.
-В будущем я хочу создать свою социальную сеть с полной анонимностью пользователей, и это лишь начало моего пути к этой цели. Конечно, я понимаю, что только на JavaScript мне не построить весь функционал, но это будет хороший опыт, который поможет глубже разобраться в тонкостях языка для более масштабных задач. Пусть даже этот проект будет включать HTTP-сервер, он нужен скорее для ознакомления с Node.js.
+Русская версия:  
+Это были всего лишь первые, довольно наивные попытки собрать что-то вроде примитивного мессенджера с простейшим HTTP-сервером на Node.js. 
+Проект родился как побочное упражнение в JavaScript — не ради результата, а чтобы лучше понять, как язык работает на стороне сервера. 
+Я отдаю себе отчёт, что для настоящей анонимной социальной сети одного JavaScript’а недостаточно, но даже такие неуклюжие эксперименты помогают разобраться в базовых концепциях и подготовиться к более серьёзным задачам.
 
-Английская версия,
 English version:
-This is my small side project in programming, and the main language I’m using is JavaScript.
-In the future, I want to create my own social network with full user anonymity, and this is just the beginning of that journey.
-Of course, I understand that I won’t be able to build the whole thing using only JavaScript, but this will be a great experience for me and help me understand many of its nuances for future projects.
-Although this app will include an HTTP server, it’s more about getting familiar with Node.js. 
+These were just humble, early attempts to build something resembling a bare-bones messenger with a minimal HTTP server in Node.js. 
+The project started as a side exercise in JavaScript—not aimed at delivering a real product, but rather at getting a feel for how the language works on the server side. 
+I’m fully aware that JavaScript alone won’t cut it for a truly anonymous social network, but even these clumsy experiments help me grasp the fundamentals and lay the groundwork for more ambitious projects down the road.
